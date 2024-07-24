@@ -45,6 +45,10 @@ function fetchLargeVideo() {
             wastedData = (wastedBytes / (1024 * 1024)).toFixed(2); // Convert bytes to MB
             document.getElementById('wastedData').textContent = `Wasted Data: ${wastedData} MB`;
 
+            const progressPercentage = (wastedBytes / totalBytesToWaste) * 100;
+            document.getElementById('progressBar').style.width = `${progressPercentage}%`;
+            document.getElementById('progressBar').setAttribute('aria-valuenow', progressPercentage);
+
             if (wastedBytes >= totalBytesToWaste) {
                 clearInterval(interval);
                 document.getElementById('startStopButton').textContent = 'Start';
