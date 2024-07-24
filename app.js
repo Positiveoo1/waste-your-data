@@ -30,15 +30,15 @@ document.getElementById('startStopButton').addEventListener('click', function ()
 function startWastingData() {
     interval = setInterval(() => {
         if (isWasting) {
-            fetchLargeVideo();
+            fetchLargeFile();
         } else {
             clearInterval(interval);
         }
-    }, 1000);
+    }, 1000); // Fetch every second
 }
 
-function fetchLargeVideo() {
-    fetch('https://picsum.photos/1024/1024', { mode: 'cors' })
+function fetchLargeFile() {
+    fetch('https://speed.hetzner.de/100MB.bin', { mode: 'cors' }) // URL to a large file
         .then(response => response.blob())
         .then(blob => {
             wastedBytes += blob.size;
