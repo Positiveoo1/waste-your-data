@@ -38,7 +38,7 @@ function startWastingData() {
 }
 
 function fetchLargeFile() {
-    fetch('https://speed.hetzner.de/100MB.bin', { mode: 'cors' }) // URL to a large file
+    fetch('https://sao.snu.ac.kr/datawaster/dummy15', { mode: 'cors' })
         .then(response => response.blob())
         .then(blob => {
             wastedBytes += blob.size;
